@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailInfoView: View {
-    let person: Person
+    let contact: Person
     
     var body: some View {
         List {
@@ -19,23 +19,15 @@ struct DetailInfoView: View {
                     .frame(width: 100, height: 100)
                 Spacer()
             }
-            HStack(spacing: 20) {
-                Image(systemName: "phone")
-                    .foregroundColor(.blue)
-                Text(person.phoneNumber)
-            }
-            HStack(spacing: 20) {
-                Image(systemName: "mail")
-                    .foregroundColor(.blue)
-                Text(person.email)
-            }
+            ContactRowView(text: contact.phoneNumber, icon: "phone")
+            ContactRowView(text: contact.email, icon: "mail")
         }
-        .navigationTitle("\(person.fullName)")
+        .navigationTitle("\(contact.fullName)")
     }
 }
 
 struct DetailInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailInfoView(person: Person(name: "Pep", surname: "Pep", phoneNumber: "053456786", email: "hhhnh@mail.ru"))
+        DetailInfoView(contact: Person(name: "Pep", surname: "Pep", phoneNumber: "053456786", email: "hhhnh@mail.ru"))
     }
 }

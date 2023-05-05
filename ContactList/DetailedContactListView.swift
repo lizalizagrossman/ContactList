@@ -13,16 +13,8 @@ struct DetailedContactListView: View {
     var body: some View {
         List(contacts, id: \.self) { contact in
             Section {
-                HStack{
-                    Image(systemName: "phone")
-                        .foregroundColor(.blue)
-                    Text(contact.phoneNumber)
-                }
-                HStack {
-                    Image(systemName: "mail")
-                        .foregroundColor(.blue)
-                    Text(contact.email)
-                }
+                ContactRowView(text: contact.phoneNumber, icon: "phone")
+                ContactRowView(text: contact.email, icon: "mail")
             } header: {
                 Text(contact.fullName)
             }
